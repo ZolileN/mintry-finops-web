@@ -49,7 +49,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-[#050505]/70 border-b border-white/6 transition-all duration-300">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
+      <div className="w-full px-6 md:px-12 h-16 flex items-center justify-between gap-4">
         {/* Logo */}
         <a href="#" className="nav-logo flex items-center gap-1 select-none">
           MINTRY<span>.FABRIC</span>
