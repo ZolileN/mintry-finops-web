@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#00E5A3]/10 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute top-1/3 left-1/3 w-[400px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-4xl mx-auto text-center flex flex-col items-center">
         {/* Top Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0a0a0c] border border-white/6 text-[#00E5A3] font-mono text-[10px] tracking-wider uppercase mb-8 select-none">
           <span className="w-1.5 h-1.5 rounded-full bg-[#00E5A3] animate-pulse" />
@@ -18,7 +18,7 @@ export default function Hero() {
         </div>
 
         {/* Main Headline */}
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.1] font-display max-w-3xl">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-8 leading-[1.1] font-display max-w-3xl">
           Transparent FinOps <br />
           TLS Proxy for <span className="text-[#00E5A3]">FinTech</span> <span className="text-[#0066FF]">APIs</span>
         </h1>
@@ -43,8 +43,8 @@ export default function Hero() {
             </div>
             <span className="ml-4 text-xs text-slate-500 font-mono select-none">docker-compose.yml</span>
           </div>
-          <div className="p-6 overflow-x-auto leading-relaxed select-none">
-            <pre className="text-xs md:text-sm font-mono text-slate-300">
+          <div className="p-4 sm:p-6 leading-relaxed select-none w-full overflow-x-auto">
+            <pre className="block w-full min-w-0 text-[10px] sm:text-xs md:text-sm font-mono text-slate-300 pb-1">
               <code>
                 <span className="text-pink-400">environment:</span>{'\n'}
                 {'  '}- <span className="text-[#00E5A3]">HTTP_PROXY</span>=http://mintry-sidecar:8080{'\n'}

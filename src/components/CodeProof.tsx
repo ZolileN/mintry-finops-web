@@ -4,11 +4,11 @@ import React from 'react';
 
 export default function CodeProof() {
   return (
-    <section className="w-full bg-[#050505] py-24 px-6 relative border-t border-white/4">
+    <section className="w-full bg-[#050505] py-24 px-6 relative border-t border-white/4 overflow-hidden">
       {/* Background glow overlay */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-500/5 blur-[130px] rounded-full pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
         {/* Left Side Info */}
         <div className="lg:col-span-5 flex flex-col text-left">
           {/* Label */}
@@ -17,7 +17,7 @@ export default function CodeProof() {
           </div>
           
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight leading-[1.1]">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-8 tracking-tight leading-[1.1]">
             Zero code changes. <br />
             <span className="text-[#00E5A3]">Hot-reloadable</span> <br />
             policies.
@@ -48,8 +48,8 @@ export default function CodeProof() {
             </div>
             
             {/* Code Body */}
-            <div className="p-6 font-mono text-sm overflow-x-auto text-left leading-relaxed text-slate-300">
-              <pre className="select-none">
+            <div className="p-4 sm:p-6 font-mono text-sm text-left leading-relaxed text-slate-300 w-full overflow-x-auto">
+              <pre className="block w-full min-w-0 select-none text-[10px] sm:text-xs md:text-sm pb-1">
                 <code>
                   <span className="text-[#444]"># mintry.yaml - Hot-reloadable routing policies</span>{'\n'}
                   <span className="text-[#00E5A3]">version</span>: <span className="text-emerald-400">&quot;1.0&quot;</span>{'\n'}

@@ -118,7 +118,7 @@ export default function Terminal() {
           {/* Log Streaming */}
           <div className="flex flex-col gap-2">
             {lines.map((line, idx) => (
-              <div key={idx} className={getLineClass(line.type)}>
+              <div key={idx} className={`${getLineClass(line.type)} break-all sm:break-normal`}>
                 {line.text}
                 {idx === lines.length - 1 && step === 1 && (
                   <span className="inline-block w-2 h-4 bg-[#00E5A3] animate-pulse ml-1" />

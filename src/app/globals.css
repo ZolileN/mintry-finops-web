@@ -120,15 +120,24 @@ body::before {
 /* WAITLIST FORM CLASSES */
 .email-form {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
   gap: 10px;
   width: 100%;
   background: rgba(10, 10, 12, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  padding: 6px;
+  padding: 8px;
   border-radius: 12px;
   transition: all 0.3s ease;
   backdrop-filter: blur(4px);
+}
+
+@media (min-width: 640px) {
+  .email-form {
+    flex-direction: row;
+    align-items: center;
+    padding: 6px;
+  }
 }
 
 .email-form:focus-within {
@@ -140,7 +149,7 @@ body::before {
   color: #fff;
   font-family: var(--font-mono), monospace;
   font-size: 14px;
-  padding: 8px 12px;
+  padding: 10px 12px;
   border: 1px solid transparent;
   outline: none;
   width: 100%;
@@ -157,12 +166,20 @@ body::before {
   font-family: var(--font-mono), monospace;
   font-size: 12px;
   font-weight: 700;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .cta-btn {
+    width: auto;
+  }
 }
 
 .cta-btn:hover:not(:disabled) {

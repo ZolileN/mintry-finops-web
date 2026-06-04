@@ -18,18 +18,18 @@ export default function Languages() {
   ];
 
   return (
-    <section className="w-full bg-[#050505] py-24 px-6 relative border-t border-white/4">
+    <section className="w-full bg-[#050505] py-24 px-6 relative border-t border-white/4 overflow-hidden">
       {/* Background glow overlay */}
       <div className="absolute right-0 bottom-0 w-[350px] h-[350px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+      <div className="max-w-4xl mx-auto text-center flex flex-col items-center w-full">
         {/* Label */}
         <div className="text-xs font-mono text-[#8a8a8a] tracking-[0.2em] mb-6 uppercase select-none">
           {"// 04 — Language-Agnostic"}
         </div>
         
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
+        <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-8 tracking-tight">
           One Fabric. / Any Language.
         </h2>
         

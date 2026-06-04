@@ -27,11 +27,11 @@ export default function Comparison() {
   ];
 
   return (
-    <section className="w-full bg-[#050505] py-24 px-6 relative border-t border-white/4">
+    <section className="w-full bg-[#050505] py-24 px-6 relative border-t border-white/4 overflow-hidden">
       {/* Background glow overlay */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
       
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center w-full">
         {/* Left Side Content */}
         <div className="lg:col-span-6 flex flex-col text-left">
           {/* Section ID */}
@@ -40,7 +40,7 @@ export default function Comparison() {
           </div>
           
           {/* Section Header */}
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white mb-8 tracking-tight">
             Vendor-<span className="text-[#00E5A3]">Sprawl</span>
           </h2>
           
@@ -65,38 +65,40 @@ export default function Comparison() {
         {/* Right Side Comparison Table */}
         <div className="lg:col-span-6 w-full">
           <div className="w-full bg-[#0a0a0c]/80 border border-white/6 rounded-xl overflow-hidden shadow-xl backdrop-blur-sm p-1">
-            <table className="w-full border-collapse text-left text-sm">
-              <thead>
-                <tr className="border-b border-white/6 font-mono text-xs tracking-wider text-[#8a8a8a] select-none">
-                  <th className="py-4 px-6 uppercase font-medium">Feature</th>
-                  <th className="py-4 px-6 uppercase font-medium text-right lg:text-left">Standard Billing</th>
-                  <th className="py-4 px-6 uppercase font-medium text-right text-[#00E5A3]">Mintry Fabric</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-white/3">
-                {comparisonData.map((row, idx) => (
-                  <tr 
-                    key={idx} 
-                    className="hover:bg-white/1 transition-colors"
-                  >
-                    {/* Feature Name */}
-                    <td className="py-5 px-6 font-medium text-slate-300 font-sans">
-                      {row.feature}
-                    </td>
-                    
-                    {/* Standard Billing */}
-                    <td className="py-5 px-6 text-rose-500/90 font-mono text-xs text-right lg:text-left">
-                      {row.standard}
-                    </td>
-                    
-                    {/* Mintry Fabric */}
-                    <td className="py-5 px-6 text-[#00E5A3] font-mono text-xs text-right font-semibold">
-                      {row.mintry}
-                    </td>
+            <div className="overflow-x-auto w-full scrollbar-thin">
+              <table className="w-full min-w-[500px] border-collapse text-left text-sm">
+                <thead>
+                  <tr className="border-b border-white/6 font-mono text-xs tracking-wider text-[#8a8a8a] select-none">
+                    <th className="py-4 px-4 uppercase font-medium">Feature</th>
+                    <th className="py-4 px-4 uppercase font-medium text-right lg:text-left">Standard Billing</th>
+                    <th className="py-4 px-4 uppercase font-medium text-right text-[#00E5A3]">Mintry Fabric</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-white/3">
+                  {comparisonData.map((row, idx) => (
+                    <tr 
+                      key={idx} 
+                      className="hover:bg-white/1 transition-colors"
+                    >
+                      {/* Feature Name */}
+                      <td className="py-5 px-4 font-medium text-slate-300 font-sans">
+                        {row.feature}
+                      </td>
+                      
+                      {/* Standard Billing */}
+                      <td className="py-5 px-4 text-rose-500/90 font-mono text-xs text-right lg:text-left">
+                        {row.standard}
+                      </td>
+                      
+                      {/* Mintry Fabric */}
+                      <td className="py-5 px-4 text-[#00E5A3] font-mono text-xs text-right font-semibold">
+                        {row.mintry}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

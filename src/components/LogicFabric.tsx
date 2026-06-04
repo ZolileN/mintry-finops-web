@@ -36,12 +36,12 @@ export default function LogicFabric() {
   }, []);
 
   return (
-    <section className="w-full bg-[#050505] py-24 px-6 relative border-t border-white/4">
+    <section className="w-full bg-[#0a0a0c] py-24 px-6 relative border-t border-white/4 overflow-hidden">
       {/* Background glow overlay */}
       <div className="absolute left-1/4 top-1/3 -translate-x-1/2 w-[400px] h-[400px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute right-1/4 bottom-1/3 translate-x-1/2 w-[400px] h-[400px] bg-[#00E5A3]/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto w-full">
         {/* Section Label */}
         <div className="text-xs font-mono text-[#8a8a8a] tracking-[0.2em] mb-6 uppercase text-center lg:text-left">
           {"// 02 — The Logic Fabric"}
@@ -49,7 +49,7 @@ export default function LogicFabric() {
 
         {/* Section Heading & Subtitle */}
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between items-start mb-20 text-left">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight shrink-0 lg:max-w-md">
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight shrink-0 lg:max-w-md">
             The Logic <span className="text-transparent bg-clip-text bg-linear-to-r from-[#00E5A3] to-blue-500">Fabric</span>
           </h2>
           <p className="text-slate-400 leading-relaxed max-w-2xl text-base font-light pt-1">
