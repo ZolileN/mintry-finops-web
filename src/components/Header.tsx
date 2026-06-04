@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import WaitlistForm from './WaitlistForm';
 
 export default function Header() {
   const [showWaitlist, setShowWaitlist] = useState(false);
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,33 +17,6 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      // Emit event to sync with other waitlist forms
-      window.dispatchEvent(new CustomEvent('waitlist-submit', { detail: email }));
-      setTimeout(() => {
-        setSubmitted(false);
-        setEmail('');
-      }, 3000);
-    }
-  };
-
-  useEffect(() => {
-    const handleSync = (e: Event) => {
-      const customEvent = e as CustomEvent;
-      setSubmitted(true);
-      setEmail(customEvent.detail);
-      setTimeout(() => {
-        setSubmitted(false);
-        setEmail('');
-      }, 3000);
-    };
-    window.addEventListener('waitlist-submit', handleSync);
-    return () => window.removeEventListener('waitlist-submit', handleSync);
   }, []);
 
   return (
@@ -61,27 +33,7 @@ export default function Header() {
             ? 'opacity-100 translate-y-0 pointer-events-auto' 
             : 'opacity-0 -translate-y-2 pointer-events-none'
         } hidden md:block`}>
-          <form onSubmit={handleSubmit} className="flex items-center gap-2 bg-[#0a0a0a] border border-white/8 hover:border-white/15 p-1 rounded-lg transition-all">
-            <input
-              type="email"
-              placeholder="you@company.dev"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-transparent text-sm text-white px-3 py-1.5 focus:outline-none w-full font-mono placeholder:text-[#444]"
-              required
-              disabled={submitted}
-            />
-            <button 
-              type="submit" 
-              className={`text-xs px-4 py-1.5 rounded font-bold font-mono transition-all whitespace-nowrap ${
-                submitted 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-[#00E5A3] text-black hover:bg-[#00c58a] active:scale-95'
-              }`}
-            >
-              {submitted ? 'Joined' : 'Get Access'}
-            </button>
-          </form>
+          <WaitlistForm inputId="header-waitlist" placeholder="you@company.dev" />
         </div>
 
         {/* Early Access Status */}

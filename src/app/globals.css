@@ -116,3 +116,72 @@ body::before {
   border: 1px solid rgba(0, 102, 255, 0.15);
   box-shadow: inset 0 0 40px rgba(0, 102, 255, 0.08);
 }
+
+/* WAITLIST FORM CLASSES */
+.email-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  background: rgba(10, 10, 12, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.email-form:focus-within {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.email-input {
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-mono), monospace;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  outline: none;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.email-input::placeholder {
+  color: #444;
+}
+
+.cta-btn {
+  background: #00E5A3;
+  color: #000;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover:not(:disabled) {
+  background: #00c58a;
+  box-shadow: 0 0 15px rgba(0, 229, 163, 0.15);
+}
+
+.cta-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.cta-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.hero-micro {
+  font-size: 11px;
+  font-family: var(--font-mono), monospace;
+  color: var(--text-secondary);
+}
+

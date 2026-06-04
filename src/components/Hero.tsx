@@ -1,38 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import WaitlistForm from './WaitlistForm';
 
 export default function Hero() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setSubmitted(true);
-      // Emit event to sync with other waitlist forms
-      window.dispatchEvent(new CustomEvent('waitlist-submit', { detail: email }));
-      setTimeout(() => {
-        setSubmitted(false);
-        setEmail('');
-      }, 3000);
-    }
-  };
-
-  useEffect(() => {
-    const handleSync = (e: Event) => {
-      const customEvent = e as CustomEvent;
-      setSubmitted(true);
-      setEmail(customEvent.detail);
-      setTimeout(() => {
-        setSubmitted(false);
-        setEmail('');
-      }, 3000);
-    };
-    window.addEventListener('waitlist-submit', handleSync);
-    return () => window.removeEventListener('waitlist-submit', handleSync);
-  }, []);
-
   return (
     <section className="relative w-full bg-[#050505] flex flex-col items-center justify-center px-6 pt-32 pb-16 overflow-hidden">
       {/* Background Glow Effect mimicking the Vercel/Neon theme */}
@@ -59,27 +30,7 @@ export default function Hero() {
 
         {/* Waitlist and CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mb-16">
-          <form onSubmit={handleSubmit} className="flex items-center gap-2.5 w-full bg-[#0a0a0c]/80 border border-white/6 p-1.5 rounded-xl transition-all focus-within:border-white/15">
-            <input
-               type="email"
-              placeholder="you@company.dev"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="bg-transparent text-sm text-white px-3 py-2 focus:outline-none w-full font-mono placeholder:text-[#444]"
-              required
-              disabled={submitted}
-            />
-            <button 
-              type="submit" 
-              className={`text-xs px-5 py-2.5 rounded-lg font-bold font-mono transition-all whitespace-nowrap active:scale-95 ${
-                submitted 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-[#00E5A3] hover:bg-[#00c58a] text-black shadow-[0_0_15px_rgba(0,229,163,0.15)]'
-              }`}
-            >
-              {submitted ? 'Joined List' : 'Get Access'}
-            </button>
-          </form>
+          <WaitlistForm inputId="hero-waitlist" placeholder="you@company.dev" />
         </div>
 
         {/* Terminal Snippet Preview */}
